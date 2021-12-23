@@ -1,0 +1,83 @@
+<p>All good {{tille}}</p>
+
+<h1 [style.color]="black">
+
+    {{edad}}
+
+</h1>
+
+
+<button (click)="up()" style="background-color: aqua; border-radius: 8px; padding: 1; color: black;"> dale</button>
+
+<button (click)="dowm()" style="background-color: aqua; border-radius: 8px; padding: 1; color: black;"> dale
+    other</button>
+
+
+<div *ngIf="edad >= 8">
+
+    <h1>
+        all good brother
+    </h1>
+</div>
+
+<ul>
+    <li *ngFor="let nombre of nombres ; let indice = index">
+
+        {{nombre +"."+ indice}}
+
+    </li>
+
+</ul>
+
+
+
+<p>Ingrese primer valor
+    <input [(ngModel)]="valor1" type="number">
+</p>
+<p>Ingrese segundo valor
+    <input [(ngModel)]="valor2" type="number">
+</p>
+
+
+<p>
+    <select [(ngModel)]="operacion">
+        <option value="ninguna">Elija una opción</option>
+        <option value="sumar">Sumar</option>
+        <option value="restar">Restar</option>
+        <option value="multiplicar">multiplicar</option>
+        <option value="dividir">Dividir</option>
+    </select>
+</p>
+
+
+<p>Resultado:
+    <span [ngSwitch]="operacion">
+        <span *ngSwitchCase="'sumar'">{{valor1+valor2}}</span>
+        <span *ngSwitchCase="'restar'">{{valor1-valor2}}</span>
+        <span *ngSwitchCase="'multiplicar'">{{valor1*valor2}}</span>
+        <span *ngSwitchCase="'dividir'">{{valor1/valor2}}</span>
+        <span *ngSwitchDefault>(No eligió operación)</span>
+    </span>
+</p>
+
+<button (click)="clear()" style="background-color: aqua; border-radius: 8px; padding: 1; color: black;"> clear</button>
+<br />
+<br />
+
+<div *ngIf="check; else loggedOut">
+    Welcome back, friend.
+</div>
+<div>
+    <ng-template #loggedOut>
+        Please friend, login.
+    </ng-template>
+
+</div>
+
+<button (click)="change()" style="background-color: aqua; border-radius: 8px; padding: 1; color: black;"> change
+    Status</button>
+
+
+    <app-validar [major]="major" [minor]="major">
+
+    </app-validar>

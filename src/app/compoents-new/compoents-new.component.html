@@ -1,0 +1,51 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input name="name" type="email" formControlName="name" class="form-control" required minlength="4">
+
+
+
+    <label for="last-name">Last Name: </label>
+    <input name="lasname" type="text" formControlName="lasname">
+
+
+    <div formGroupName="address">
+        <h2>Address</h2>
+
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street">
+
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state">
+
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+    </div>
+
+    <button style="background-color: aqua; border-radius: 8px; padding: 1; color: black; outline: none; border: none;
+    padding: 0.4rem .7rem; " type="submit"
+        >Submit</button>
+
+</form>
+
+
+
+<div *ngIf="all.length > 0">
+    <ul>
+        <li *ngFor="let all of all ; let indice = index">
+
+            {{all.name || " " }}
+            {{all.lasname || " " }}
+
+            <a>
+                {{all.address.city}}
+                {{all.address.state}}
+            </a>
+            <button (click)="delec(indice)"> Delec</button>
+        </li>
+    </ul>
+
+</div>
